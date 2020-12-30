@@ -1,6 +1,7 @@
 exports.handler = async function(event, context) {
-  console.log('event', event);
-  console.log('context', context);
+  const {identity, user} = context.clientContext;
+  console.log('identity', identity);
+  console.log('user', user);
 
   return {
     statusCode: 200,
