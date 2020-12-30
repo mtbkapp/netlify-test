@@ -1,13 +1,10 @@
-var junk = require('netlify-fns/acme.mod_test.fauna');
-
 exports.handler = async function(event, context) {
+  console.log('event', event);
+  console.log('context', context);
 
   return {
     statusCode: 200,
     body: JSON.stringify({ message: "hello from netlify" })
   };
 }
-
-console.log(junk.get_data());
-
 
