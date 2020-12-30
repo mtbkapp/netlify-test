@@ -1,12 +1,13 @@
-var faunadb = require('faunadb');
+var junk = require('netlify-fns/acme.mod_test.fauna');
 
 exports.handler = async function(event, context) {
-  console.log('hello!', faunadb);
 
   return {
     statusCode: 200,
     body: JSON.stringify({ message: "hello from netlify" })
   };
 }
+
+console.log(junk.get_data());
 
 

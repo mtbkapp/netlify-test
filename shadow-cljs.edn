@@ -11,4 +11,8 @@
  :builds
  {:frontend
   {:target :browser
-   :modules {:main {:init-fn acme.frontend.app/init}}}}}
+   :modules {:main {:init-fn acme.frontend.app/init}}}
+  :netlify-fns-module
+  {:target :npm-module
+   :entries [acme.mod-test.fauna]
+   :output-dir "node_modules/netlify-fns"}}}
