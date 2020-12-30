@@ -1,5 +1,8 @@
+var faunadb = require('faunadb');
+
+
 exports.handler = async function(event, context) {
-  console.log('hello!');
+  console.log('hello!', faunadb);
 
   return {
     statusCode: 200,
