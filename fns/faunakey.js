@@ -13,15 +13,13 @@ exports.handler = async function(event, context) {
     console.log('valid user', user);
     return {
       statusCode: 200,
-      body: JSON.stringify({ fuanaKey: getFaunaClientKey() }); 
+      body: JSON.stringify({ fuanaKey: getFaunaClientKey() }) 
     };
   } 
 
-  if (isValidUser(user)) {
-    console.log('invalid user');
-    return {
-      statusCode: 401,
-      body: JSON.stringify({ message: 'User token invalid or not present' })
-    };
-  } 
+  console.log('invalid user');
+  return {
+    statusCode: 401,
+    body: JSON.stringify({ message: 'User token invalid or not present' })
+  };
 }
