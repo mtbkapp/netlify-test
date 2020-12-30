@@ -1,6 +1,8 @@
 (ns acme.frontend.app
   (:require [clojure.spec.alpha :as spec]
-            [clojure.string :as string]))
+            [clojure.string :as string]
+            [reagent.core :as r]
+            [reagent.dom :as rd]))
 
 
 (def units {"cup" {:unit/type :unit.type/volume
@@ -263,3 +265,12 @@
 
 (let [el (js/document.getElementById "fauna-btn")]
   (.addEventListener el "click" on-fauna-click))
+
+
+(defn app
+  []
+  [:p "rendered with react"])
+
+
+(rd/render [app]
+           (js/document.getElementById "app"))
