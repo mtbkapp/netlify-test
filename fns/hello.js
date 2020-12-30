@@ -1,7 +1,7 @@
 exports.handler = async function(event, context) {
   console.log('hello!');
-  console.log('event', event);
-  console.log('context', context);
+  console.log(process.env);
+  console.log(process.env.DB_API_KEY);
 
   return {
     statusCode: 200,
