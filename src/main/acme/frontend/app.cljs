@@ -243,3 +243,23 @@
 (prn "calories-in" (calories-in (sub-ingredients recipe0 test-ingredients)))
 (prn "how-much" (how-much recipe0 "8" "oz"))
 (println "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
+
+
+(defn on-fauna-click
+  []
+  (js/console.log "fauna click")
+  (if-let [user (js/netlifyIdentity.currentUser)]
+    (-> (.jwt user)
+        (.then (fn [jwt]
+                 (js/fetch
+                   ".netlify/functions/faunakey"
+                   #js {:headers #js {"Content-Type" "application/json"
+                                      "Authorization" (str "Bearer " jwt)}})))
+        (.catch (fn [err]
+                  (js/console.error err))))
+    
+    (js/console.log "not logged in")))
+
+
+(let [el (js/document.getElementById "fauna-btn")]
+  (.addEventListener el "click" on-fauna-click))
