@@ -1,7 +1,6 @@
-
+var faunadb = require('faunadb');
 
 exports.handler = async function(event, context) {
-  var faunadb = require('faunadb');
   console.log('hello!', faunadb);
 
   return {
